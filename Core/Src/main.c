@@ -45,7 +45,7 @@ ADC_HandleTypeDef hadc1;
 /* USER CODE BEGIN PV */
 
 	uint32_t adcVal =0 ;
-	uint32_t analogVeriler=0;
+	float analogVeriler=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -112,7 +112,10 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  analogVeriler = ReadAdcValue();
+	  // voltaji gercek degerine ceviriyoruz
+	  // Vadc = Vdd * ( ADC Value / resolution)
+
+	  analogVeriler = 3.3* ((float)ReadAdcValue()/4095.0);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
